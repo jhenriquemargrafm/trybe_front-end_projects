@@ -72,7 +72,7 @@ Habilidades utilizadas
 - Conectar Redux aos componentes React.
 - Criar actions assíncronas na sua aplicação React que faz uso de Redux.
 
-8. Projeto - Star Wars Planets Search
+8. Projeto - Star Wars Planets Search<br>
 Habilidades utilizadas
 - Utilizar a Context API do React para gerenciar estado.
 - Utilizar o React Hook useState;
@@ -80,7 +80,7 @@ Habilidades utilizadas
 - Utilizar o React Hook useEffect;
 - Criar React Hooks customizados.
 
-9. Projeto - Aplicativo de Receitas
+9. Projeto - Aplicativo de Receitas<br>
 Habilidades utilizadas
 - Utilizar Redux para gerenciar estado
 - Utilizar a biblioteca React-Redux
