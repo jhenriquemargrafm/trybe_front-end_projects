@@ -1,0 +1,63 @@
+.footer {
+  bottom: 0;
+  position: fixed;
+
+}
+
+.photo {
+  border: 5px solid rgb(206, 203, 17);
+  border-radius: 50px;
+  display: block;
+  height: 200px;
+  margin-left: 5px;
+  position: relative;
+  text-align: center;
+  width: 200px;
+}
+
+@media screen and ( max-width : 360px ) {
+
+  body {
+    background: #0fa36b;
+    max-width: 100%;
+  }
+
+  .recipe-photo {
+    max-width: 100%;
+  }
+
+  .recommended {
+    display: flex;
+  }
+
+}
+
+.recommendedCard {
+  align-items: center;
+  background-color: white;
+  border-radius: 4%;
+  display: none;
+  height: 230px;
+  margin: 5px;
+  text-align: center;
+  width: 100%;
+}
+
+.showCard {
+  display: inline;
+}
+
+.thumb {
+  border-radius: 4%;
+  max-width: 100%;
+}
+
+.food-details {
+  height: 5000%;
+  max-width: 100%;
+}
+
+.start-recipe {
+  bottom: 0;
+  position: fixed;
+}
