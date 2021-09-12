@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import logo from '../trivia.png';
 import { getTokenThunk, sendEmail } from '../actions';
+import './Login.css';
 
 class Login extends Component {
   constructor() {
@@ -46,38 +47,42 @@ class Login extends Component {
             SUA VEZ
           </p>
           <form>
-            <input
-              data-testid="input-player-name"
-              type="text"
-              name="name"
-              placeholder="Digite seu nome"
-              value={ name }
-              onChange={ this.handleChange }
-            />
-            <input
-              data-testid="input-gravatar-email"
-              type="text"
-              name="email"
-              placeholder="Digite seu email"
-              value={ email }
-              onChange={ this.handleChange }
-            />
-            <Link to="/game">
-              <button
-                type="button"
-                data-testid="btn-play"
-                disabled={ isEnabled }
-                onClick={ () => {
-                  getToken();
-                  sendEmailG(email, name);
-                } }
-              >
-                Jogar
-              </button>
-            </Link>
-            <Link to="/settings">
-              <button type="button" data-testid="btn-settings">Configuração</button>
-            </Link>
+            <div className="input">
+              <input
+                data-testid="input-player-name"
+                type="text"
+                name="name"
+                placeholder="Digite seu nome"
+                value={ name }
+                onChange={ this.handleChange }
+              />
+              <input
+                data-testid="input-gravatar-email"
+                type="text"
+                name="email"
+                placeholder="Digite seu email"
+                value={ email }
+                onChange={ this.handleChange }
+              />
+            </div>
+            <div className="loginButtons">
+              <Link to="/game">
+                <button
+                  type="button"
+                  data-testid="btn-play"
+                  disabled={ isEnabled }
+                  onClick={ () => {
+                    getToken();
+                    sendEmailG(email, name);
+                  } }
+                >
+                  Jogar
+                </button>
+              </Link>
+              <Link to="/settings">
+                <button type="button" data-testid="btn-settings">Configuração</button>
+              </Link>
+            </div>
           </form>
         </header>
       </main>

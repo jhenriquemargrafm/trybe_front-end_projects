@@ -126,35 +126,48 @@ class Game extends Component {
   renderQuestions() {
     const { questions } = this.props;
     const { disabled, number } = this.state;
+    const rightElement = questions.results[number].correct_answer;
+    const incorrectElements = questions.results[number].incorrect_answers;
+    const alternatives = [rightElement, ...incorrectElements].sort();
     return (
       <div>
         <h5
+          className="question"
           data-testid="question-category"
         >
           {questions.results[number].category}
         </h5>
-        <h2 data-testid="question-text">{questions.results[number].question}</h2>
-        <button
-          type="button"
-          data-testid="correct-answer"
-          id="correct-answer"
-          onClick={ (event) => this.colorOptions(event) }
-          disabled={ disabled }
-        >
-          {questions.results[number].correct_answer}
-        </button>
-        {questions.results[number].incorrect_answers.map((incorrect, key) => (
-          <button
-            key={ key }
-            type="button"
-            data-testid={ `wrong-answer ${key}` }
-            id="wrong-answer"
-            onClick={ (event) => this.colorOptions(event) }
-            disabled={ disabled }
-          >
-            { incorrect }
-          </button>
-        ))}
+        <h2 className="question" data-testid="question-text">{questions.results[number].question}</h2>
+        <div className="question">
+          {alternatives.map((answer, index) => {
+            if (answer === questions.results[number].correct_answer) {
+              return (
+                <button
+                  key={ index }
+                  type="button"
+                  data-testid="correct-answer"
+                  id="correct-answer"
+                  onClick={ (event) => this.colorOptions(event) }
+                  disabled={ disabled }
+                >
+                  {questions.results[number].correct_answer}
+                </button>
+              );
+            }
+            return (
+              <button
+                key={ index }
+                type="button"
+                data-testid="wrong-answer"
+                id="wrong-answer"
+                onClick={ (event) => this.colorOptions(event) }
+                disabled={ disabled }
+              >
+                { answer }
+              </button>
+            );
+          })}
+        </div>
       </div>
     );
   }
@@ -178,14 +191,23 @@ class Game extends Component {
       return <Redirect to="/feedback" />;
     }
     return (
-      <div>
-        <header>
-          <img data-testid="header-profile-picture" src={ `https://www.gravatar.com/avatar/${hash}` } alt="Gravatar" />
-          <p data-testid="header-player-name">{ name }</p>
-          <p data-testid="header-score">{ score }</p>
+      <div className="interface color">
+        <header className="center color">
+          <img className="photo" data-testid="header-profile-picture" src={ `https://www.gravatar.com/avatar/${hash}` } alt="Gravatar" />
+          <p className="center" data-testid="header-player-name">
+            Player:
+            { name }
+          </p>
+          <p className="center" data-testid="header-score">
+            Pontuação:
+            { score }
+          </p>
         </header>
         <div>
-          <p id="timer">{ seconds }</p>
+          <p className="center" id="timer">
+            Tempo restante:
+            { seconds }
+          </p>
           {!loading
             ? (this.renderQuestions()) : <p>loading...</p>}
           {disabled

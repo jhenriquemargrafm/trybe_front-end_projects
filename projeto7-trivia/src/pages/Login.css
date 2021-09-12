@@ -1,0 +1,12 @@
+input {
+  display: flex;
+  justify-content: space-between;
+  width: 240px;
+  margin: 10px;
+}
+
+.loginButtons {
+  display: flex;
+  justify-content: center;
+}
+
